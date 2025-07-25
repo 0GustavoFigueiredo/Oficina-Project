@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Check Service Status</title>
+</head>
+<body>
+<h2>Check Your Service Order Status</h2>
+<form th:action="@{/check-status}" method="post">
+  <div>
+    <label for="cpfCnpj">Enter your CPF or CNPJ:</label>
+    <input type="text" id="cpfCnpj" name="cpfCnpj" required>
+  </div>
+  <div>
+    <button type="submit">Check Status</button>
+  </div>
+</form>
+</body>
+</html>

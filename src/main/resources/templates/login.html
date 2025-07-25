@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop Login</title>
+</head>
+<body>
+<h1>Login</h1>
+
+<div th:if="${param.success}">
+    Registration successful! Please log in.
+</div>
+
+<div th:if="${param.error}">
+    Invalid CPF/CNPJ or password.
+</div>
+
+<!-- O formulário agora tem os campos de input -->
+<form th:action="@{/login}" method="post">
+    <div>
+        <label for="username">CPF or CNPJ:</label>
+        <input type="text" id="username" name="username" required autofocus>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <button type="submit">Log In</button>
+    </div>
+</form>
+
+<hr>
+
+<p>
+    <a th:href="@{/register}">Don't have an account? Sign Up</a>
+</p>
+
+</body>
+</html>

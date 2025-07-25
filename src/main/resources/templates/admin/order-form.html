@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Service Order</title>
+</head>
+<body>
+<h2>Create a New Service Order</h2>
+<form th:action="@{/admin/orders}" th:object="${serviceOrder}" method="post">
+  <div>
+    <label for="totalValue">Total Value:</label>
+    <input type="number" step="0.01" th:field="*{totalValue}" id="totalValue">
+  </div>
+
+  <div>
+    <label for="client">Client:</label>
+    <select id="client" name="clientId" required>
+      <option value="">Select a Client</option>
+      <option th:each="client : ${clients}"
+              th:value="${client.id}"
+              th:text="${client.name}">John Doe</option>
+    </select>
+  </div>
+
+  <div>
+    <button type="submit">Create Order</button>
+  </div>
+</form>
+</body>
+</html>
